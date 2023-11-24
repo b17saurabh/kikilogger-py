@@ -1,0 +1,11 @@
+{
+    "name": "test_logger1",
+    "$schema": "https://raw.githubusercontent.com/robertdebock/ansible-role-logger/master/defaults/main/schema.json",
+    "appenders": [
+      {
+        "type": "console",
+        "format": "%(levelname)s: %(message)s"
+      }
+    ]
+  }
+  
