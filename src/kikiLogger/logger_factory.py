@@ -1,11 +1,11 @@
 import logging
 import json
 
-from .console_appender import ConsoleAppender
-from .elasticsearch_appender import ElasticsearchAppender
-from .json_appender import JsonAppender
-from .opensearch_appender import OpenSearchAppender
-from .txt_file_appender import TxtFileAppender
+from .appender.console_appender import ConsoleAppender
+from .appender.elasticsearch_appender import ElasticsearchAppender
+from .appender.json_appender import JsonAppender
+from .appender.opensearch_appender import OpenSearchAppender
+from .appender.txt_file_appender import TxtFileAppender
 
 
 class MultiAppenderLogger(logging.Logger):
@@ -37,8 +37,8 @@ class MultiAppenderLogger(logging.Logger):
     async def critical_async(self, message, extra=None):
         self.log(logging.CRITICAL, message, extra)
 
-def getLogger(config_path="loggerConfig.json"):
-    with open(config_path) as config_file:
+def getLogger(config_path="test_logger_config.json"):
+    with open(file=config_path) as config_file:
         log_config = json.load(config_file)
 
     logger = MultiAppenderLogger(log_config.get("name", "multi_appender_logger"))

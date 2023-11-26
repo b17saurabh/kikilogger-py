@@ -1,5 +1,5 @@
 {
-    "name": "test_logger1",
+    "name": "test_logger2",
     "appenders": [
       {
         "type": "console",
